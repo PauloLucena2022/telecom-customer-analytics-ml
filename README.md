@@ -1,10 +1,5 @@
 # Project Revenue Shield — Protecting High-Value Telecom Revenue with ML
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/scikit--learn-ML%20Pipelines-F7931E?logo=scikit-learn&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-Champion%20Model-006400)
-![Course](https://img.shields.io/badge/UTokyo%20GCI%202026-Final%20Assignment-1B365D)
-
 > **Data-driven retention strategy and machine learning business proposal** developed for the **GCI World 2026 Final Assignment** (Matsuo-Iwasawa Lab, The University of Tokyo).
 
 Instead of building a generic churn classifier across all 100,000 subscribers, **Project Revenue Shield** isolates the **High-Value Q4 cohort** (top 25% by monthly revenue, generating **48.54%** of total billing), pairs calibrated **XGBoost** churn probabilities with an **Expected Revenue-at-Risk (RaR)** prioritization layer, and stress-tests real-world financial ROI under Bayes base-rate recalibration.
@@ -18,7 +13,6 @@ Instead of building a generic churn classifier across all 100,000 subscribers, *
   * **Bill Shock & Plan Misalignment:** Q4 churners sit on **$10 cheaper base plans** (median `$59.99` vs. `$69.99`) yet pay significantly more in overage penalties (**34.0%** of total billing). Accounts with an Account Spending Limit (`asl_flag = Y`) churn **8.82 p.p. less** (`41.44%` vs. `50.26%`).
   * **Equipment Aging:** Handsets older than one year (`eqpdays > 365`) drive a **+9.59 p.p. jump in churn** (`55.21%` vs. `45.62%`).
   * **Early Usage Contraction:** Churning accounts exhibit nearly **3x steeper voice usage drops** (`change_mou` mean `-27.94` vs. `-9.73`) 31–60 days before exit.
-* **Commercial Prioritization Lift:** Ranking Q4 subscribers by $\text{Expected RaR}_i = P(\text{churn}_i \mid X_i) \times \text{rev\_Mean}_i$ captures **37.90% of all Q4 monthly at-risk revenue** within just the **Top 20% of Q4** (only **5%** of the full subscriber base — a **1.89x lift** over random targeting and **2.36x lift** in the Top 10%).
 * **Holdout Profit vs. Real-World Cannibalization:** On the holdout test set, Expected RaR ranking delivers **$33,529 in net contribution profit (106.64% ROI)**—more than **2x** probability-only targeting (**$16,320 | 50.87% ROI**) and nearly **5x** random targeting (**$7,020 | 24.81% ROI**). However, recalibrating the 50/50 balanced sample to realistic mature postpaid churn (**1.5%–2.0%/month**) exposes severe subsidy cannibalization (**-72.4% to -17.0% ROI**), motivating a **digital-first, low-cost offer redesign**, a **90-day A/B pilot**, and evolution toward **causal uplift modeling**.
 
 ---
